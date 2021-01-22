@@ -9,35 +9,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>JS Inlämningsuppgift1</title>
+    <title>Blog</title>
 
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
   </head>
 
   <body>
-    <header>
-      <h1>Blogg</h1>
+    <header class="header sticky-top">
+      <h1 class="logo">Blog</h1>
       <form action="">
-        <label for="blog-posts-input">Antal blogginlägg</label>
-        <input type="number" min="0" name="blog-posts-input" id="blog-posts-input" placeholder="Artiklar" />
+        <!-- <label for="input-number">No. of posts</label> -->
+        <input type="number" min="0" name="input-number" id="input-number" placeholder="Posts" />
       </form>
     </header>
 
-    <main>
-      <section class="blog">
-        <article class="blog-article">
-          <h2>Artikel 1</h2>
+    <main class="content">
+      <section class="container">
+        <article class="post">
+          <h2>Article 1</h2>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta fugit natus ex eos nesciunt accusantium doloremque architecto. Cumque atque fuga deserunt aspernatur porro culpa consequuntur. Minima aliquam placeat perferendis ad.</p>
         </article>
-        <article class="blog-article">
-          <h2>Artikel 2</h2>
+
+        <article class="post">
+          <h2>Article 2</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta fugit natus ex eos nesciunt accusantium doloremque architecto. Cumque atque fuga deserunt aspernatur porro culpa consequuntur. Minima aliquam placeat perferendis ad.</p>
+        </article>
+
+        <article class="post">
+          <h2>Article 3</h2>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta fugit natus ex eos nesciunt accusantium doloremque architecto. Cumque atque fuga deserunt aspernatur porro culpa consequuntur. Minima aliquam placeat perferendis ad.</p>
         </article>
       </section>
     </main>
 
-    <footer>
-      <p>Jonatan Eriksson</p>
-    </footer>
+    <footer class="footer"></footer>
   </body>
 </html>
