@@ -1,11 +1,11 @@
 :root {
-  --bg-primary: #252046;
-  /* --bg-secondary: #141414; */
-  --bg-secondary: #1f1f1f;
+  /* --bg-secondary: #141414; #252046; */
+  --bg-primary: #1f1f1f;
   --bg-light: #f4f6f3;
 
   --text-dark: #1f1f1f;
   --text-light: #f4f6f3;
+  --text-dark-ts: #1f1f1faa;
 }
 
 * {
@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
 
   font-family: inherit;
   font-size: 1em;
@@ -59,6 +60,10 @@ textarea {
   font-size: inherit;
 }
 
+.hide {
+  display: none;
+}
+
 .sticky-top {
   position: sticky;
   position: -webkit-sticky;
@@ -66,18 +71,31 @@ textarea {
 }
 
 .header {
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-around;
 
+  padding: 0 1rem;
   min-height: 80px;
 
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   color: var(--text-light);
 }
 
 .logo {
   margin: 0.5rem 0;
+}
+
+.post-form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-input {
+  width: 80%;
+  padding: 4px;
+  outline: none;
 }
 
 .container {
@@ -86,7 +104,44 @@ textarea {
 }
 
 .post {
+  position: relative;
   padding: 60px 15px;
+}
+
+.post-title {
+  width: 100%;
+  display: inline-block;
+}
+
+.post-text {
+  width: 100%;
+  display: inline-block;
+}
+
+.post-btn {
+  padding: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 0;
+
+  color: var(--text-dark);
+}
+.post-btn:hover {
+  color: var(--text-dark-ts);
+}
+.post-btn:active {
+  color: var(--text-dark);
+}
+
+.post-edit {
+  right: 15px;
+}
+
+.post-undo {
+  right: 70px;
 }
 
 .footer {
@@ -94,6 +149,6 @@ textarea {
   min-height: 50px;
   text-align: center;
 
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   color: var(--text-light) !important;
 }
