@@ -1,7 +1,7 @@
 <!-- TODO html / css
-  * header, titel/logga, input för antalet blogginlägg
-  * footer
-  * blogginlägg, rubrik, brödtext
+  *! header, titel/logga, input för antalet blogginlägg
+  *! footer
+  *! blogginlägg, rubrik, brödtext
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +18,14 @@
   <body>
     <header class="header sticky-top">
       <h1 class="logo">Blog</h1>
-      <form action="">
+      <form action="#" onsubmit="return false;">
         <!-- <label for="input-number">No. of posts</label> -->
         <input type="number" min="0" name="input-number" id="input-number" placeholder="Posts" />
       </form>
     </header>
 
     <main class="content">
-      <section class="container">
+      <section class="container blog-posts">
         <article class="post">
           <h2>Article 1</h2>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta fugit natus ex eos nesciunt accusantium doloremque architecto. Cumque atque fuga deserunt aspernatur porro culpa consequuntur. Minima aliquam placeat perferendis ad.</p>
