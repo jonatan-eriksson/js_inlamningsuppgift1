@@ -6,20 +6,26 @@ TODO:
 
 "use strict";
 
-window.onload = () => {
+window.addEventListener("DOMContentLoaded", (e) => {
+  const blog = document.querySelector(".blog-posts");
   const input = document.querySelector("#input-number");
 
+  /* När inputrutan förändras så körs koden, 
+     först töms blog-posts elementet,
+     sen skapas ett antal blogginlägg, lika många som värdet i inputrutan,
+     till sist läggs blogginläggen till i DOMen 
+  */
   input.addEventListener("change", (e) => {
-    clearPosts();
+    clearPosts(blog);
     let posts = createMultiplePosts(e.currentTarget.value);
-    appendPosts(posts);
+    appendPosts(blog, posts);
   });
 
   const editBtn = document.querySelector(".post-edit");
   editBtn.addEventListener("click", editPost);
-};
+});
 
-// Skapar ett blogginlägg med titel och brödtext och returnerar artikeln
+// Skapar ett blogginlägg med titel och brödtext och returnerar blogginlägget
 function createPost(num) {
   const post = document.createElement("article");
   const title = document.createElement("h2");
@@ -61,25 +67,23 @@ function createMultiplePosts(num) {
   return posts;
 }
 
-// Lägger till bloginlägg i elementet med klassen blog-posts
-function appendPosts(posts) {
-  const blogPosts = document.querySelector(".blog-posts");
-
+// Lägger till blogginlägg i blog-post elementet
+function appendPosts(elem, posts) {
   if (Array.isArray(posts)) {
-    posts.forEach((post) => blogPosts.append(post));
+    posts.forEach((post) => elem.append(post));
   } else {
-    blogPosts.append(posts);
+    elem.append(posts);
   }
 }
 
-function clearPosts() {
-  const blogPosts = document.querySelector(".blog-posts");
-  blogPosts.innerHTML = "";
+// Tar bort allt innuti elementet, för att rensa blogginlägg
+function clearPosts(elem) {
+  elem.innerHTML = "";
 }
 
 function editPost(e) {
   const editBtn = e.currentTarget;
-  const post = e.currentTarget.parentNode;
+  const post = editBtn.parentNode;
 
   const title = post.querySelector(".post-title");
   const text = post.querySelector(".post-text");
@@ -88,22 +92,25 @@ function editPost(e) {
   undoBtn.classList.toggle("hide");
 
   if (title.isContentEditable) {
+    // Avaktivera redigering på text och titel
     editBtn.textContent = "Edit";
     title.contentEditable = false;
     text.contentEditable = false;
 
     undoBtn.onclick = "";
   } else {
+    // Aktivera redigering på text och titel
     editBtn.textContent = "Save";
     title.contentEditable = true;
     text.contentEditable = true;
 
-    // Spara original titel och text
+    // Undo
+    // Spara original text och titel
     let oldTitle = title.innerHTML;
     let oldText = text.innerHTML;
 
     undoBtn.onclick = undoBtn.onclick = () => {
-      // Återställ om man klickar på Undo
+      // Återställ text och titel om man klickar på Undo
       title.innerHTML = oldTitle;
       text.innerHTML = oldText;
     };
