@@ -10,23 +10,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Blog</title>
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
     <script src="main.js"></script>
   </head>
 
-  <body>
+  <body class="page">
     <header class="header sticky-top">
       <a class="logo" href="index.html">Blog</a>
-      <form class="post-form" action="#" onsubmit="return false;">
-        <!-- <label for="input-number">No. of posts</label> -->
-        <input class="post-input" type="number" min="0" name="input-number" id="input-number" placeholder="Posts" />
-      </form>
+      <div class="header-container">
+        <form class="post-form" action="#" onsubmit="return false;">
+          <!-- <label for="input-number">No. of posts</label> -->
+          <input class="post-input" type="number" min="0" name="input-number" id="input-number" placeholder="Posts" />
+        </form>
+        <a class="text-light" href="#"><i class="fab fa-github fa-2x"></i></a>
+      </div>
     </header>
+
+    <aside class="sidebar collapse">
+      <nav class="nav">
+        <ul class="nav-list">
+          <!-- <li class="nav-item"><a class="nav-link" href="#">Artikel 1</a></li> -->
+        </ul>
+      </nav>
+    </aside>
 
     <main class="content">
       <section class="container blog-posts">
-        <article class="post">
+        <!-- <article class="post">
           <h2 class="post-title">Article 1</h2>
           <p class="post-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta fugit natus ex eos nesciunt accusantium doloremque architecto. Cumque atque fuga deserunt aspernatur porro culpa consequuntur. Minima aliquam placeat perferendis ad.</p>
           <button class="post-btn post-edit" type="button">Edit</button>
@@ -45,7 +56,7 @@
           <p class="post-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta fugit natus ex eos nesciunt accusantium doloremque architecto. Cumque atque fuga deserunt aspernatur porro culpa consequuntur. Minima aliquam placeat perferendis ad.</p>
           <button class="post-btn post-edit" type="button">Edit</button>
           <button class="post-btn post-undo hide" type="button">Undo</button>
-        </article>
+        </article> -->
       </section>
     </main>
 
