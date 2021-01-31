@@ -24,7 +24,6 @@
 
 html {
   font-family: "Poppins", sans-serif;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-size: 100%;
 
   scroll-snap-type: y proximity;
@@ -117,7 +116,6 @@ ul {
   z-index: 10;
   display: flex;
   align-items: center;
-  /* justify-content: space-around; */
   justify-content: space-between;
 
   padding: 0 1rem;
@@ -158,12 +156,12 @@ ul {
 .content {
   grid-area: main;
   transition: all 0.5s;
-  padding: 0 25px;
+  padding: 0 50px;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 50rem; /*48rem;*/
+  max-width: 50rem;
 }
 
 .post {
@@ -174,7 +172,7 @@ ul {
 .post-title {
   width: 100%;
   display: inline-block;
-  scroll-margin-top: 90px;
+  scroll-margin-top: 100px;
 }
 
 .post-text {
@@ -208,17 +206,53 @@ ul {
 }
 
 /* ##SIDEBAR */
+
 .sidebar {
+  z-index: 5;
   grid-area: sidebar;
   width: var(--sidebar);
 
-  position: sticky;
+  position: fixed;
   height: calc(100vh - var(--header));
   top: var(--header);
   bottom: 0;
 
+  background-color: var(--bg-light);
   border-right: 1px solid var(--bg-primary-ts);
   transition: all 0.5s;
+}
+
+.sidebar.collapse {
+  margin-left: calc(-1 * var(--sidebar));
+}
+
+.sidebar-toggle {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--bg-primary-ts);
+  border-left: 1px solid transparent;
+  outline: 0;
+}
+
+.sidebar-toggle:hover {
+  color: var(--text-dark-ts);
+}
+
+.sidebar-toggle:active {
+  color: var(--text-dark);
+}
+
+.btn-top {
+  z-index: 1;
+  position: absolute;
+  top: unset;
+  bottom: 15px;
+  left: 100%;
+  padding: 8px 10px;
+  font-size: 1.4rem;
 }
 
 .nav {
@@ -240,24 +274,16 @@ ul {
   word-break: break-word;
 }
 
-/* .nav ul {
-  -ms-overflow-style: none;
-  scrollbar-width: none; 
-  overflow-y: scroll;
-} */
-
-/* .nav ul::-webkit-scrollbar {
-  display: none;
-} */
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+  }
+}
 
 /* ##FOOTER */
 .footer {
   grid-area: footer;
-  z-index: 10;
-  margin-top: auto;
   min-height: 50px;
   text-align: center;
-
-  /* background-color: var(--bg-primary);
-  color: var(--text-light) !important; */
+  padding: 0 40px;
 }
