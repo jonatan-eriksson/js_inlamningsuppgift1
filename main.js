@@ -1,27 +1,54 @@
+/*
+Felsökning / undvika buggar:
+
+Console.log
+Jag använde console.log när jag gjorde "querySelects" så det blev rätt element,
+  och för att se så element skapades när jag byggde create funktionerna.
+https://www.w3schools.com/js/js_debugging.asp
+
+Använde "use strict" för att se till så jag skriver säkrare kod, som att hålla koll på att varibler är deklarerade.
+https://www.w3schools.com/js/js_strict.asp 
+
+Jag försökte också följa "One function - one action", det gjorde det lättare att ta sig fram steg för steg.
+https://javascript.info/function-basics#function-naming
+
+*/
+
 "use strict";
 
+// Event som körs när html DOM har laddats, väntar inte på stylesheets och bilder
 window.addEventListener("DOMContentLoaded", (e) => {
   const blog = document.querySelector(".blog-posts");
   const sidebarList = document.querySelector(".sidebar .nav-list");
   const input = document.querySelector("#input-number");
 
-  // När input elementet förändras genom att användaren fyller i ett nummer så körs koden
+  // När input elementet förändras genom att användaren fyller i ett nummer så skapas nya blogginlägg
   input.addEventListener("change", (e) => {
-    clear(blog); // Rensar blogginläggen
-    let posts = createMultiplePosts(e.currentTarget.value); // Skapar blogginlägg
-    appendPosts(blog, posts); // Lägger till dem i DOMen
+    /**
+     * Rensar blogginläggen
+     * Skapar nya blogginlägg, skapar så många som användaren angett i inputrutan
+     * Till sist läggs dem till i DOMen
+     * */
+    clear(blog);
+    let posts = createMultiplePosts(e.currentTarget.value);
+    appendPosts(blog, posts);
 
-    clear(sidebarList); // Rensar sidebarlistan
-    let items = createSidebarItems(posts); // Skapar nya länkar till blogginläggen
-    appendPosts(sidebarList, items); // Lägger till dem i sidebaren
+    /**
+     * Rensar sidebarlistan
+     * Skapar nya länkar till blogginläggen, plockar ut titel och id från de som skapades i början av eventet
+     * Till sist läggs dem till i sidebaren
+     * */
+    clear(sidebarList);
+    let items = createSidebarItems(posts);
+    appendPosts(sidebarList, items);
   });
 
-  // Sidebarknappen
+  // Sidebarknapp
   const sidebarToggle = document.querySelector(".sidebar-toggle");
   sidebarToggle.onclick = toggleSidebar;
 });
 
-// Tar bort alla blogginlägg
+// Tar bort allt innuti elementet, används för att rensa blogginlägg och sidebaren
 function clear(element) {
   element.innerHTML = "";
 }
