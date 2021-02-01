@@ -1,18 +1,17 @@
 /*
-Felsökning / undvika buggar:
-
-Console.log
-Jag använde console.log när jag gjorde "querySelects" så det blev rätt element,
-  och för att se så element skapades när jag byggde create funktionerna.
-https://www.w3schools.com/js/js_debugging.asp
-
-Använde "use strict" för att se till så jag skriver säkrare kod, som att hålla koll på att varibler är deklarerade.
-https://www.w3schools.com/js/js_strict.asp 
-
-Jag försökte också följa "One function - one action", det gjorde det lättare att ta sig fram steg för steg.
-https://javascript.info/function-basics#function-naming
-
-*/
+ *  Felsökning / undvika buggar:
+ *
+ * Console.log
+ * Jag använde console.log när jag gjorde "querySelects" så det blev rätt element,
+ *   och för att se så element skapades när jag byggde create funktionerna.
+ * https://www.w3schools.com/js/js_debugging.asp
+ *
+ * Använde "use strict", det såg till att jag skrev säkrare kod. Det gav bättre varnings/felmeddelanden, tex. håller koll på att varibler är deklarerade.
+ * https://www.w3schools.com/js/js_strict.asp
+ *
+ * Jag försökte också följa "One function - one action", det gjorde det lättare att ta sig fram steg för steg.
+ * https://javascript.info/function-basics#function-naming
+ */
 
 "use strict";
 
