@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
      * Till sist läggs dem till i DOMen
      * */
     clear(blog);
-    let posts = createMultiplePosts(e.currentTarget.value);
+    let posts = createPosts(e.currentTarget.value);
     appendPosts(blog, posts);
 
     /**
@@ -87,7 +87,7 @@ function createPost(num) {
 }
 
 // Skapar flera blogginlägg och lägger dem i en array
-function createMultiplePosts(num) {
+function createPosts(num) {
   let posts = [];
   for (let i = 1; i <= num; i++) {
     posts.push(createPost(i));
@@ -133,7 +133,7 @@ function editPost(e) {
     let oldTitle = title.innerHTML;
     let oldText = text.innerHTML;
 
-    undoBtn.onclick = undoBtn.onclick = () => {
+    undoBtn.onclick = () => {
       // Återställ text och titel om man klickar på Undo
       title.innerHTML = oldTitle;
       text.innerHTML = oldText;
